@@ -4,6 +4,8 @@ To come is a better php interface.
 
 ## OAuth Usage
 
+    use Currinda\Organisation\OAuthProvider;
+
     $provider = new OAuthProvider([
       "organisationId" => "...",
       "currindaSite" => "...",
