@@ -2,6 +2,7 @@ This provides a PHP Provider for the Currinda APIs. Currently the only thing tha
 
 To come is a better php interface.
 
+
 ## OAuth Usage
 
     use Currinda\Organisation\OAuthProvider;
@@ -32,4 +33,16 @@ To come is a better php interface.
 
     //use token to grab the user details
     $user_details = $provider->getUserDetails($token);
+
+## API
+
+```$provider->getUserDetails(AccessToken $token);```
+Get all user details including all membership data
+
+
+```$provider->getUserMembership(AccessToken $token);```
+Get personal membership details for user
+
+```$provider->getCorporateMemberships(AccessToken $token);```
+Get corporate membership details for user. This will return an array of all membership data.
 
