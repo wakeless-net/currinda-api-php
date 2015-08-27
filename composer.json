@@ -1,0 +1,17 @@
+{
+  "name": "currinda/currinda-api-php",
+  "description": "This provides a number of PHP interfaces to the Currinda API",
+  "homepage": "http://currinda.com/",
+  "license": "MIT",
+
+  "require": {
+    "guzzlehttp/guzzle-services": "^0.5.0",
+    "league/oauth2-client": "~0.3"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "Currinda\\": "src/"
+    }
+  }
+}
