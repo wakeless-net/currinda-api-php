@@ -39,32 +39,37 @@ class OAuthProvider extends AbstractProvider {
       return $response;
     }
 
-    public function getUserDetails(AccessToken $token)
-    {
-        $response = $this->fetchUserDetails($token);
+    public function getUserDetails(AccessToken $token) {
+      $response = $this->fetchUserDetails($token);
 
-        return $this->userDetails(json_decode($response), $token);
+      return $this->userDetails(json_decode($response), $token);
     }
 
-    public function getUserUid(AccessToken $token)
-    {
-        $response = $this->fetchUserDetails($token, true);
-
-        return $this->userUid(json_decode($response), $token);
+    public function getUserUid(AccessToken $token) {
+      return $this->getUserEmail($token);
     }
 
-    public function getUserEmail(AccessToken $token)
-    {
-        $response = $this->fetchUserDetails($token, true);
+    public function getUserEmail(AccessToken $token) {
+      $response = $this->getUserDetails($token);
 
-        return $this->userEmail(json_decode($response), $token);
+      return $response->Email;
     }
 
-    public function getUserScreenName(AccessToken $token)
-    {
-        $response = $this->fetchUserDetails($token, true);
+    public function getUserScreenName(AccessToken $token) {
+      return $this->getUserEmail($token);
+    }
 
-        return $this->userScreenName(json_decode($response), $token);
+
+    function getUserMembership(AccessToken $token) {
+      $response = $this->getUserDetails($token);
+
+      return $response->Membership;
+    }
+
+    function getCorporateMemberships(AccessToken $token) {
+      $response = $this->getUserDetails($token);
+
+      return $response->CorporateMemberships;
     }
     
 }
