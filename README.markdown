@@ -37,12 +37,15 @@ To come is a better php interface.
 ## API
 
 ```$provider->getUserDetails(AccessToken $token);```
+
 Get all user details including all membership data
 
 
 ```$provider->getUserMembership(AccessToken $token);```
+
 Get personal membership details for user
 
 ```$provider->getCorporateMemberships(AccessToken $token);```
+
 Get corporate membership details for user. This will return an array of all membership data.
 
